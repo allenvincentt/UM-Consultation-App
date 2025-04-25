@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../viewModels/test_vm.dart'; // Import ViewModel
+import '../viewmodels/test_viewmodels.dart'; // Import ViewModel
 
 class TestView extends StatelessWidget {
   final TestViewModel viewModel = TestViewModel(); // Instantiate ViewModel
