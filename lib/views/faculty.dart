@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:um_consultation_app/views/settings_view.dart';
 import '../viewmodels/faculty_viewmodel.dart';
 
 class FacultyView extends StatefulWidget {
+  const FacultyView({super.key});
+
   @override
   _FacultyViewState createState() => _FacultyViewState();
 }
@@ -16,6 +19,7 @@ class _FacultyViewState extends State<FacultyView> {
   // Consultation data
   String? consultationStatus;
   String? disapprovalReason;
+
 
   @override
   Widget build(BuildContext context) {
