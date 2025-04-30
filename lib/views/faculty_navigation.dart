@@ -16,7 +16,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     FacultyView(),  // Requests Screen
-    Container(),    // ayaw lng sa i click or else mag crash ang app HAHAHAHAAHA
+    Container(),    // ayaw lng sa i click ang middle sa buttons or else mag crash ang app HAHAHAHAAHA
     SettingsView(), // Settings Screen
   ];
 
