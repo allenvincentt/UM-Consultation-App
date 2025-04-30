@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'views/test_view.dart';
+import 'package:um_consultation_app/views/faculty.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: TestView(),
-  ));
+    home: FacultyView(),
+  )); 
 }
