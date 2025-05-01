@@ -26,7 +26,7 @@ class SettingsViewState extends State<SettingsView> {
         padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: [//dungag lng listTile if naa i add na setting/feature
             ListTile(
               leading: Icon(Icons.account_circle),
               title: const Text("Account Management"),

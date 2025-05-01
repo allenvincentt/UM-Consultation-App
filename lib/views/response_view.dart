@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//straight from gdrive, haven't been modified, tested and debugged
 // MODEL FOR CONSUL DATA:>
 class Consultation {
   final String courseCode;
@@ -28,7 +28,7 @@ class Consultation {
     );
   }
 }
-//straight from gdrive, haven't been modified, tested and debugged
+
 class ConsultationResponseView extends StatefulWidget {
   const ConsultationResponseView({Key? key}) : super(key: key);
 

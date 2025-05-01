@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:um_consultation_app/views/create_account_view.dart';
 import 'package:um_consultation_app/views/faculty.dart';
 import 'package:um_consultation_app/views/faculty_navigation.dart';
+import 'package:um_consultation_app/views/login_view.dart';
 import 'package:um_consultation_app/views/settings_view.dart';
 
 void main() {
