@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:um_consultation_app/views/faculty/request_view.dart';
 import 'package:um_consultation_app/views/student/menu_view.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class FacultyMainView extends StatefulWidget {
+  const FacultyMainView({super.key});
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 //like it or not need ni siya na class for bottom navigation therefore i call ni na class sa main.dart
 
-class HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<FacultyMainView> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [

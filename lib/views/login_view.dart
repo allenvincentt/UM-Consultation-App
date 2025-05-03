@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:um_consultation_app/viewmodels/student/login_viewmodel.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -9,8 +11,8 @@ class LoginView extends StatefulWidget {
 
 
 class _LoginViewState extends State<LoginView> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+final LoginViewModel _loginViewmodel = LoginViewModel();
+
   bool _obscurePassword = true;
 
   @override
@@ -71,7 +73,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const SizedBox(height: 15),
                 TextField(
-                  controller: emailController,
+                  controller: _loginViewmodel.usernameController,
                   decoration: InputDecoration(
                     hintText: 'Student ID Number or Email',
                     filled: true,
@@ -84,7 +86,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const SizedBox(height: 16),
                 TextField(
-                  controller: passwordController,
+                  controller: _loginViewmodel.passwordController,
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     hintText: 'Password',
@@ -130,7 +132,7 @@ class _LoginViewState extends State<LoginView> {
                     elevation: 4,
                   ),
                   onPressed: () {
-                    //should go to the home page
+                    _loginViewmodel.login(context, _loginViewmodel.username, _loginViewmodel.password);//should go to the home page
                   },
                   child: Text(
                     'Login',

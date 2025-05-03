@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'consultation_request_view.dart'; // Import the other page
+ import 'package:flutter/material.dart';
+import 'consultation_view.dart'; // Import the other page
 
 class RequestView extends StatelessWidget {
   const RequestView({super.key});
@@ -57,7 +57,7 @@ class RequestView extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ConsultationPageView()),
+                      MaterialPageRoute(builder: (context) => ConsultationView()),
                     );
                   },
                   icon: const Icon(Icons.note_add),

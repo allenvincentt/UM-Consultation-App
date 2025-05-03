@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(CreateAccount());
+void main() => runApp(CreateAccountView());
 
-class CreateAccount extends StatelessWidget {
-  const CreateAccount({super.key});
+class CreateAccountView extends StatelessWidget {
+  const CreateAccountView({super.key});
 
   @override
   Widget build(BuildContext context) {
