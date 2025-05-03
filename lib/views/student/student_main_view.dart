@@ -16,6 +16,7 @@ class _MainViewState extends State<StudentMainView> {
     return Scaffold(
       body: _mainViewModel.screens[_mainViewModel.selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Request'),
@@ -23,8 +24,8 @@ class _MainViewState extends State<StudentMainView> {
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
         ],
         currentIndex: _mainViewModel.selectedIndex,
-        selectedItemColor: Colors.redAccent,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Color(0xFFA1000B),
+        unselectedItemColor: Colors.black,
         onTap: (index) {
           setState(() {
             _mainViewModel.updateIndex(index);

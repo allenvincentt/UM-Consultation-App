@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/viewmodels/student/login_viewmodel.dart';
+import 'package:um_consultation_app/viewmodels/login_viewmodel.dart';
 
 
 class LoginView extends StatefulWidget {
