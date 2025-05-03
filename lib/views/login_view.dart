@@ -4,11 +4,11 @@ class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginViewState createState() => _LoginViewState();
 }
 
 
-class _LoginPageState extends State<LoginView> {
+class _LoginViewState extends State<LoginView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _obscurePassword = true;
@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginView> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 45.0),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginView> {
                       TextSpan(
                         text: 'UM',
                         style: TextStyle(
-                          //fontFamily: 'varsity_regular',
+                          fontFamily: 'varsity_regular',
                           color: Colors.red.shade900,
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginView> {
                       TextSpan(
                         text: ' Consultation',
                         style: TextStyle(
-                          //fontFamily: 'coolvetica',
+                          fontFamily: 'coolvetica',
                           color: Colors.orange,
                           fontWeight: FontWeight.bold,
                           fontSize: 40,

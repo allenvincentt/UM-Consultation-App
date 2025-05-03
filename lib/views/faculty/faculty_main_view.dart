@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/faculty.dart';
-import 'package:um_consultation_app/views/settings_view.dart';
+import 'package:um_consultation_app/views/faculty/request_view.dart';
+import 'package:um_consultation_app/views/student/menu_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     FacultyView(),  // Requests Screen
     Container(),    // ayaw lng sa i click ang middle sa buttons or else mag crash ang app HAHAHAHAAHA
-    SettingsView(), // Settings Screen
+    MenuView(), // Settings Screen
   ];
 
   @override

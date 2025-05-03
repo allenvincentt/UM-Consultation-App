@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SettingsView extends StatefulWidget {
-  const SettingsView({super.key});
+class MenuView extends StatefulWidget {
+  const MenuView({super.key});
 
   @override
   SettingsViewState createState() => SettingsViewState();
 }
 
-class SettingsViewState extends State<SettingsView> {
+class SettingsViewState extends State<MenuView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

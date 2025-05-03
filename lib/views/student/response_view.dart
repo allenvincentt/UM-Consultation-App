@@ -29,15 +29,15 @@ class Consultation {
   }
 }
 
-class ConsultationResponseView extends StatefulWidget {
-  const ConsultationResponseView({Key? key}) : super(key: key);
+class ResponseView extends StatefulWidget {
+  const ResponseView({Key? key}) : super(key: key);
 
   @override
   _ConsultationResponseViewState createState() =>
       _ConsultationResponseViewState();
 }
 
-class _ConsultationResponseViewState extends State<ConsultationResponseView> {
+class _ConsultationResponseViewState extends State<ResponseView> {
   String selectedStatus = 'All';
   final Map<String, Map<String, dynamic>> statusStyles = {
     'Pending': {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/settings_view.dart';
-import '../viewmodels/faculty_viewmodel.dart';
+import 'package:um_consultation_app/views/student/menu_view.dart';
 
 class FacultyView extends StatefulWidget {
   const FacultyView({super.key});
