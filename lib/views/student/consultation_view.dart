@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ConsultationPageView extends StatelessWidget {
+class ConsultationView extends StatelessWidget {
   final TextEditingController codeController = TextEditingController(text: '7599');
   final TextEditingController instructorController = TextEditingController(text: 'Jay Al Gallenero');
   final TextEditingController dateController = TextEditingController(text: '04/14/2025');
   final TextEditingController startTimeController = TextEditingController(text: '4:30 PM');
   final TextEditingController endTimeController = TextEditingController(text: '5:00 PM');
 
-  ConsultationPageView({super.key});
+  ConsultationView({super.key});
 
   @override
   Widget build(BuildContext context) {
