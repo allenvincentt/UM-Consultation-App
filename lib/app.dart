@@ -10,6 +10,6 @@ import 'package:um_consultation_app/views/student/student_main_view.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: LoginView(), //change lng ang class if gusto i run ang other view file
+    home: StudentMainView(), //change lng ang class if gusto i run ang other view file
   )); 
 }
