@@ -8,6 +8,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/um" />
+            android:src="@mipmap/umlogo" />
     </item> 
 </layer-list>
