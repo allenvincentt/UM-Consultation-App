@@ -36,11 +36,11 @@ class SignUpScreenState extends State<SignUpScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/logo/cee.jpg',
-                height: 120,
-                width: 120,
+                'assets/logo/logofinal.png',
+                height: 175,
+                width: 400,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 15),
               Column(
                 children: [
                   Text(

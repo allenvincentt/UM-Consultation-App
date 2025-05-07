@@ -41,8 +41,8 @@ class _ConsultationResponseViewState extends State<ResponseView> {
   String selectedStatus = 'All';
   final Map<String, Map<String, dynamic>> statusStyles = {
     'Pending': {
-      'color': Colors.orange.shade100,
-      'textColor': Colors.orange,
+      'color': Color.fromARGB(255, 251, 245, 185),
+      'textColor': Color(0xffd89d25),
     },
     'Approved': {
       'color': Colors.green.shade100,
@@ -50,11 +50,11 @@ class _ConsultationResponseViewState extends State<ResponseView> {
     },
     'Disapproved': {
       'color': Colors.red.shade100,
-      'textColor': Colors.red,
+      'textColor': Color(0xffa1000b),
     },
     'Done': {
       'color': Colors.grey.shade300,
-      'textColor': Colors.grey,
+      'textColor': Color(0xff656565),
     },
   };
 
@@ -88,22 +88,23 @@ class _ConsultationResponseViewState extends State<ResponseView> {
         : consultations.where((c) => c.status == selectedStatus).toList();
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        title: const Text("Consultation Responses", style: TextStyle(color: Colors.black)),
-        centerTitle: true,
-        elevation: 1,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // FILTER DROPDOWN
+            const SizedBox(height: 25),
+            const Center(
+            child: Text(
+              "Consultation Responses",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(height: 20),
+              // FILTER DROPDOWN
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 1),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.red),
+                border: Border.all(color: Color(0xffa1000b)),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: DropdownButtonHideUnderline(
@@ -142,39 +143,45 @@ class _ConsultationResponseViewState extends State<ResponseView> {
                   return Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // CONSULTATION DETAILS
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(consultation.courseCode, style: const TextStyle(fontWeight: FontWeight.bold)),
-                              Text(consultation.courseName),
-                              Text(consultation.facultyName),
-                              const SizedBox(height: 6),
-                              Text(consultation.date, style: const TextStyle(color: Colors.red)),
-                              Text(consultation.time, style: const TextStyle(color: Colors.red)),
-                            ],
-                          ),
-
-                          // STATUS
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: statusStyle["color"],
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Text(
-                              consultation.status,
-                              style: TextStyle(
-                                color: statusStyle["textColor"],
-                                fontWeight: FontWeight.bold,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Consultation Details
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(consultation.courseCode, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                  Text(consultation.courseName),
+                                  Text(consultation.facultyName),
+                                  const SizedBox(height: 6),
+                                  Text(consultation.date, style: const TextStyle(color: Color(0xffa1000b))),
+                                  Text(consultation.time, style: const TextStyle(color: Color(0xffa1000b))),
+                                ],
                               ),
                             ),
-                          ),
-                        ],
-                      ),
+
+                            // Centered Status on the Right
+                            SizedBox(
+                              width: 100, // fixed width for the status box
+                              child: Container(
+                                alignment: Alignment.center, // Centers the text within the box
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: statusStyle["color"],
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Text(
+                                  consultation.status,
+                                  style: TextStyle(
+                                    color: statusStyle["textColor"],
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
                       const Divider(),
                     ],
                   );

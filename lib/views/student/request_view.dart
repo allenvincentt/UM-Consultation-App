@@ -21,20 +21,12 @@ class RequestView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Column(
-                  children: const [
-                    Text('549168', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red)),
-                    Text('Naive, Allen Vincent', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                    Text('Second Semester 24-25', style: TextStyle(fontSize: 16, color: Colors.orange, fontWeight: FontWeight.bold)),
-                    Text('Second Year BSCPE', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
               const SizedBox(height: 20),
               DropdownButtonFormField<String>(
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(18)),
+                  ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 ),
                 value: 'Second Semester 2024 - 2025',
@@ -50,7 +42,8 @@ class RequestView extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red.shade700,
+                    backgroundColor: Color(0xFFA1000B),
+                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),

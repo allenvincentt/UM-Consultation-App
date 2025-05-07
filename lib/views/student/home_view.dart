@@ -34,7 +34,7 @@ class ConsultationScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.red,
+                  color: Color(0xFFA1000B),
                 ),
               ),
               const SizedBox(height: 10),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/faculty/faculty_main_view.dart';
+import 'package:um_consultation_app/views/faculty/request_list_view.dart';
 import 'package:um_consultation_app/views/student/student_main_view.dart';
 
 class LoginViewModel {

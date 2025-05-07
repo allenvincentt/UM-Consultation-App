@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/faculty/request_view.dart';
+import 'package:um_consultation_app/views/faculty/consultation_list_view.dart';
 import 'package:um_consultation_app/views/student/menu_view.dart';
 
 class FacultyMainView extends StatefulWidget {
