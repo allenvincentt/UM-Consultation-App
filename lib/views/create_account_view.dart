@@ -40,29 +40,21 @@ class SignUpScreenState extends State<SignUpScreen> {
                 height: 175,
                 width: 400,
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               Column(
                 children: [
                   Text(
-                    'Create',
+                    'Create Account',
                     style: TextStyle(
-                      color: Color(0xFFffb636),
+                      fontFamily: 'SFPRODISPLAYBOLD',
+                      color: const Color.fromARGB(255, 93, 91, 91),
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  Text(
-                    'Student Account!',
-                    style: TextStyle(
-                      color: Color(0xFFa1000b),
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                  ),                ],
               ),
-              const SizedBox(height: 40),
-              _buildTextField('Student Email'),
+              const SizedBox(height: 25),
+              _buildTextField('Faculty or Student Email'),
               const SizedBox(height: 20),
               _buildPasswordField('Password', _obscurePassword, () {
                 setState(() {
@@ -84,7 +76,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                     backgroundColor: Color(0xFFa1000b),
                     padding: const EdgeInsets.symmetric(vertical: 18),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
                   child: const Text(
@@ -111,7 +103,7 @@ class SignUpScreenState extends State<SignUpScreen> {
         filled: true,
         fillColor: Colors.grey[200],
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(25),
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
@@ -136,7 +128,7 @@ class SignUpScreenState extends State<SignUpScreen> {
           onPressed: onToggle,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(25),
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(

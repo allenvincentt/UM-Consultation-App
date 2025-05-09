@@ -89,6 +89,10 @@ flutter:
     - family: coolvetica
       fonts:
         - asset: assets/fonts/coolvetica.ttf
+
+    - family: SFPRODISPLAYBOLD
+      fonts:
+        - asset: assets/fonts/SFPRODISPLAYBOLD.OTF
         
   #
   # For details regarding fonts from package dependencies,
