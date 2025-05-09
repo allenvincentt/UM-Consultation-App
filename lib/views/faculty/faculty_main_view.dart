@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/viewmodels/student/student_main_viewmodel.dart';
+import 'package:um_consultation_app/viewmodels/faculty/faculty_main_viewmodel.dart';
 
-class StudentMainView extends StatefulWidget {
-  const StudentMainView({super.key});
+class FacultyMainView extends StatefulWidget {
+  const FacultyMainView({super.key});
 
   @override
-  State<StudentMainView> createState() => _StudentMainViewState();
+  State<FacultyMainView> createState() => _FacultyMainViewState();
 }
 
-class _StudentMainViewState extends State<StudentMainView> {
-  final StudentMainViewModel _mainViewModel = StudentMainViewModel();
+class _FacultyMainViewState extends State<FacultyMainView> {
+  final FacultyMainViewmodel _mainViewModel = FacultyMainViewmodel();
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,8 @@ class _StudentMainViewState extends State<StudentMainView> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Request'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Response'),
+          BottomNavigationBarItem(icon: Icon(Icons.checklist), label: 'Request List'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Consultation List'),
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
         ],
         currentIndex: _mainViewModel.selectedIndex,

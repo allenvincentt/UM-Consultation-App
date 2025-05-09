@@ -21,10 +21,10 @@ final LoginViewModel _loginViewmodel = LoginViewModel();
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
         if(didPop) return;
-      }, //keep this to prevent the desired offset from going back to default
+      }, 
       child: Scaffold(
         backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: true, // Prevents overflow when keyboard appears
+        resizeToAvoidBottomInset: true, 
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(
@@ -34,7 +34,7 @@ final LoginViewModel _loginViewmodel = LoginViewModel();
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Transform.translate(
-                      offset: Offset(0, 35), // Positive integer offset
+                      offset: Offset(0, 35), 
                       child: Image.asset(
                         'assets/logo/logofinal.png',
                         height: 180,
@@ -42,7 +42,7 @@ final LoginViewModel _loginViewmodel = LoginViewModel();
                       ),
                     ),
                     Transform.translate(
-                      offset: Offset(0, 18), // Positive integer offset
+                      offset: Offset(0, 18), 
                       child: Text(
                         'Main Campus',
                         style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
@@ -94,13 +94,13 @@ final LoginViewModel _loginViewmodel = LoginViewModel();
                         ),
                       ),
                     ),
-                    const SizedBox(height: 1), // Adjusted spacing
+                    const SizedBox(height: 1), 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
                           onPressed: () {
-                            // Navigate to Reset Password View (Add logic here)
+                            
                           },
                           child: Text(
                             'Forgot Password?',

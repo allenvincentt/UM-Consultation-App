@@ -1,42 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/faculty/consultation_list_view.dart';
-import 'package:um_consultation_app/views/student/menu_view.dart';
 
-class FacultyMainView extends StatefulWidget {
-  const FacultyMainView({super.key});
+class RequestListView extends StatefulWidget {
+  const RequestListView({super.key});
 
   @override
-  HomeScreenState createState() => HomeScreenState();
+  _RequestListViewState createState() => _RequestListViewState();
 }
 
-//like it or not need ni siya na class for bottom navigation therefore i call ni na class sa main.dart
-
-class HomeScreenState extends State<FacultyMainView> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _screens = [
-    FacultyView(),  // Requests Screen
-    Container(),    // ayaw lng sa i click ang middle sa buttons or else mag crash ang app HAHAHAHAAHA
-    MenuView(), // Settings Screen
-  ];
+class _RequestListViewState extends State<RequestListView> {
+  bool requestVisible = true;
+  String? consultationStatus;
+  String? disapprovalReason;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFFA1000B),
-        unselectedItemColor: Colors.black,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.checklist), label: 'Requests'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Table'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+      appBar: AppBar(title: const Text('Requests')),
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildHeaders(),
+            Expanded(
+              child: ListView(
+                children: requestVisible ? [_buildRequestCard(context)] : [],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeaders() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text('Details', style: TextStyle(fontWeight: FontWeight.bold)),
+          Text('Action', style: TextStyle(fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRequestCard(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: const Text('Request #7599'),
+        subtitle: const Text('CPE 223 - Jeanelle Labsan'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.check, color: Colors.green),
+              onPressed: () {
+                setState(() {
+                  requestVisible = false;
+                  consultationStatus = 'Approved';
+                  disapprovalReason = null;
+                });
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.close, color: Colors.red),
+              onPressed: () => _promptDisapprovalReason(context),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _promptDisapprovalReason(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Disapprove Request'),
+        content: TextField(
+          controller: controller,
+          maxLines: 3,
+          decoration: const InputDecoration(hintText: 'Enter reason for disapproval...'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                requestVisible = false;
+                consultationStatus = 'Disapproved';
+                disapprovalReason = controller.text.trim().isEmpty
+                    ? 'No reason provided.'
+                    : controller.text.trim();
+              });
+              Navigator.of(context).pop();
+            },
+            child: const Text('Submit'),
+          ),
         ],
       ),
     );

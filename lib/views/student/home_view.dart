@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const HomeView());
 }
-//straight from gdrive, haven't been modified, tested and debugged
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -11,13 +11,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ConsultationScreen(),
+      home: HomeScreen(),
     );
   }
 }
 
-class ConsultationScreen extends StatelessWidget {
-  const ConsultationScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
