@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//straight from gdrive, haven't been modified, tested and debugged
-// MODEL FOR CONSUL DATA:>
+
 class Consultation {
   final String courseCode;
   final String courseName;
@@ -17,6 +16,7 @@ class Consultation {
     required this.time,
     required this.status,
   });
+
   factory Consultation.fromList(List<String> data) {
     return Consultation(
       courseCode: data[0],
@@ -39,10 +39,11 @@ class ResponseView extends StatefulWidget {
 
 class _ConsultationResponseViewState extends State<ResponseView> {
   String selectedStatus = 'All';
+
   final Map<String, Map<String, dynamic>> statusStyles = {
     'Pending': {
-      'color': Color.fromARGB(255, 251, 245, 185),
-      'textColor': Color(0xffd89d25),
+      'color': const Color.fromARGB(255, 251, 245, 185),
+      'textColor': const Color.fromARGB(255, 183, 130, 26),
     },
     'Approved': {
       'color': Colors.green.shade100,
@@ -50,23 +51,23 @@ class _ConsultationResponseViewState extends State<ResponseView> {
     },
     'Disapproved': {
       'color': Colors.red.shade100,
-      'textColor': Color(0xffa1000b),
+      'textColor': const Color(0xffa1000b),
     },
     'Done': {
       'color': Colors.grey.shade300,
-      'textColor': Color(0xff656565),
+      'textColor': const Color(0xff656565),
     },
   };
 
-  // EXAMPLE
   final List<List<String>> consultationData = [
     ["7599", "CPE 223", "Jay Al Gallenero", "Mon, April 14, 2025", "4:30 PM - 5:30 PM", "Pending"],
     ["7600", "CPE 224", "Maria Cruz", "Tue, April 15, 2025", "2:00 PM - 3:00 PM", "Approved"],
     ["7601", "CPE 225", "Juan Dela Cruz", "Wed, April 16, 2025", "1:00 PM - 2:00 PM", "Disapproved"],
     ["7602", "CPE 226", "Ana Santos", "Thu, April 17, 2025", "10:00 AM - 11:00 AM", "Done"],
-    ["7603", "CPE 227", "Burst Fade", "Mon, April 18, 2025", "1:00 AM - 2:00 AM", "Pending"],
-    ["7604", "CPE 228", "Pa Rin", "Mon, April 19, 2025", "2:00 AM - 3:00 AM", "Pending"],
-    ["7605", "CPE 229", "To Ya", "Mon, April 20, 2025", "4:00 AM - 5:00 AM", "Pending"],
+    ["7603", "CPE 227", "Seok Jin Santos", "Fri, April 18, 2025", "10:00 AM - 11:00 AM", "Disapproved"],
+    ["7604", "CPE 228", "Namjoon Salazar", "Sat, April 19, 2025", "4:00 PM - 5:00 PM", "Approved"],
+    ["7605", "CPE 229", "Yoongi Garcia", "Mon, April 21, 2025", "6:00 PM - 7:00 PM", "Pending"],
+    ["7606", "CPE 230", "Hoseok Martinez", "Thu, April 17, 2025", "10:00 AM - 11:00 AM", "Done"],
   ];
 
   late List<Consultation> consultations;
@@ -74,37 +75,35 @@ class _ConsultationResponseViewState extends State<ResponseView> {
   @override
   void initState() {
     super.initState();
-    // CONVERT EXAMPLE DATA TO CONSULTATION OBJECTS
-    consultations = consultationData
-        .map((data) => Consultation.fromList(data))
-        .toList();
+    consultations = consultationData.map((data) => Consultation.fromList(data)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    // FILTER BASED ON STATUS
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
     var filteredConsultations = selectedStatus == 'All'
         ? consultations
         : consultations.where((c) => c.status == selectedStatus).toList();
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         child: Column(
           children: [
-            const SizedBox(height: 25),
-            const Center(
-            child: Text(
-              "Consultation Responses",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            SizedBox(height: screenHeight * 0.05),
+            Center(
+              child: Text(
+                "Consultation Responses",
+                style: TextStyle(fontSize: screenWidth * 0.06, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-              // FILTER DROPDOWN
+            SizedBox(height: screenHeight * 0.03),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 1),
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.01),
               decoration: BoxDecoration(
-                border: Border.all(color: Color(0xffa1000b)),
+                border: Border.all(color: const Color(0xffa1000b)),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: DropdownButtonHideUnderline(
@@ -122,17 +121,21 @@ class _ConsultationResponseViewState extends State<ResponseView> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            // HEADER
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text('Details', style: TextStyle(fontWeight: FontWeight.bold)),
-                Text('Status', style: TextStyle(fontWeight: FontWeight.bold)),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: screenHeight * 0.001), 
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Details', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                      Text('Status', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    ],
+                  ),
+                ),
+                Divider(thickness: 1),
               ],
             ),
-            const Divider(),
-            // LIST OF CONSULTATIONS
             Expanded(
               child: ListView.builder(
                 itemCount: filteredConsultations.length,
@@ -143,46 +146,51 @@ class _ConsultationResponseViewState extends State<ResponseView> {
                   return Column(
                     children: [
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            // Consultation Details
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(consultation.courseCode, style: const TextStyle(fontWeight: FontWeight.bold)),
-                                  Text(consultation.courseName),
-                                  Text(consultation.facultyName),
-                                  const SizedBox(height: 6),
-                                  Text(consultation.date, style: const TextStyle(color: Color(0xffa1000b))),
-                                  Text(consultation.time, style: const TextStyle(color: Color(0xffa1000b))),
-                                ],
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(consultation.courseCode,
+                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth * 0.045)),
+                                Text(consultation.courseName, style: TextStyle(fontSize: screenWidth * 0.04)),
+                                Text(consultation.facultyName, style: TextStyle(fontSize: screenWidth * 0.04)),
+                                SizedBox(height: screenHeight * 0.01),
+                                Text(consultation.date,
+                                    style: TextStyle(color: const Color(0xffa1000b), fontSize: screenWidth * 0.04)),
+                                Text(consultation.time,
+                                    style: TextStyle(color: const Color(0xffa1000b), fontSize: screenWidth * 0.04)),
+                              ],
+                            ),
+                          ),
+                          Flexible(
+                            child: Container(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(
+                              vertical: screenHeight * 0.005, 
+                              horizontal: screenWidth * 0.05,
+                            ),
+                            decoration: BoxDecoration(
+                              color: statusStyle["color"],
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                consultation.status,
+                              style: TextStyle(
+                                color: statusStyle["textColor"],
+                                fontWeight: FontWeight.bold,
+                                fontSize: screenWidth * 0.045,
                               ),
                             ),
-
-                            // Centered Status on the Right
-                            SizedBox(
-                              width: 100, // fixed width for the status box
-                              child: Container(
-                                alignment: Alignment.center, // Centers the text within the box
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                decoration: BoxDecoration(
-                                  color: statusStyle["color"],
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Text(
-                                  consultation.status,
-                                  style: TextStyle(
-                                    color: statusStyle["textColor"],
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-
-                      const Divider(),
+                          ),
+                          ),
+                          ),
+                        ],
+                      ),
+                      Divider(thickness: 1),
                     ],
                   );
                 },

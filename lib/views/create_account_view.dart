@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:um_consultation_app/viewmodels/create_account_viewmodel.dart';
+import 'package:um_consultation_app/views/login_view.dart';
 
 class CreateAccountView extends StatelessWidget {
   const CreateAccountView({super.key});
@@ -34,7 +35,15 @@ class SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: viewModel.handleBackNavigation,
+    onWillPop: () async {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginView()), 
+      );
+      return false; 
+    },
+
+
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -85,7 +94,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                       backgroundColor: Color(0xFFa1000b),
                       padding: const EdgeInsets.symmetric(vertical: 18),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
                     child: const Text(
@@ -114,7 +123,7 @@ class SignUpScreenState extends State<SignUpScreen> {
         filled: true,
         fillColor: Colors.grey[200],
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
@@ -143,7 +152,7 @@ class SignUpScreenState extends State<SignUpScreen> {
           onPressed: onToggle,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),

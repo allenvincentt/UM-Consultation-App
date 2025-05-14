@@ -28,7 +28,7 @@ class CreateAccountViewModel extends ChangeNotifier {
     return await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Confirm Navigation'),
+            title: Text('Unsaved Changes'),
             content: Text('You have unsaved changes. Do you really want to go back?'),
             actions: [
               TextButton(
