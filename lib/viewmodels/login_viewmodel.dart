@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/views/faculty/faculty_main_view.dart';
-import 'package:um_consultation_app/views/student/student_main_view.dart';
+import 'package:um_consultation_app/views/faculty/faculty_navbar_view.dart';
+import 'package:um_consultation_app/views/student/student_navbar_view.dart';
 
 class LoginViewModel {
   final _screen1 = StudentMainView();

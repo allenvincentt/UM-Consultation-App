@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_consultation_app/viewmodels/faculty/faculty_main_viewmodel.dart';
+import 'package:um_consultation_app/viewmodels/faculty/faculty_navbar_viewmodel.dart';
 
 class FacultyMainView extends StatefulWidget {
   const FacultyMainView({super.key});
